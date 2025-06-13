@@ -8,7 +8,7 @@ const Admin = ({ onReturnToGame }) => {
     fetch(`${API_BASE_URL}/scores`, {
       method: 'GET',
       headers: {
-        'x-api-key': API_KEY
+        'x-api-key': 'SilamirCD2025!'
       }
     })
       .then(res => {
