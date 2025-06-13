@@ -6,6 +6,10 @@ import EndScreen from './EndScreen';
 import Hammer from './Hammer';
 import ScorePopup from './ScorePopup';
 import Admin from './Admin';
+
+
+import { API_BASE_URL, API_KEY } from '../config';
+
 const WhacABottleneckGame = () => {
   // États du jeu
   const [score, setScore] = useState(0);
