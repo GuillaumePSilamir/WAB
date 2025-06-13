@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
+import { API_BASE_URL } from '../config.js'; // <-- Assurez-vous que cette ligne est présente !
+import { API_KEY } from '../config.js'; // <-- N'oubliez pas l'API_KEY si vous l'utilisez ici aussi
 const Admin = ({ onReturnToGame }) => {
   const [scores, setScores] = useState([]);
   const [error, setError] = useState('');
