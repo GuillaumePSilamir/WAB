@@ -5,7 +5,7 @@ const Admin = ({ onReturnToGame }) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch('https://https://wab-backend-production-d076.up.railway.app/scores', {
+    fetch('https://wab-backend-production-d076.up.railway.app/scores', {
       method: 'GET',
       headers: {
         'x-api-key': 'SilamirCD2025!'
