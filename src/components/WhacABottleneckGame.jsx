@@ -95,7 +95,7 @@ const WhacABottleneckGame = () => {
         else if (newHits === 3) setTimeLeft(t => t + 5);
         return newHits;
       });
-    } else points = -5;
+    } else points = -10;
     setScore(prev => prev + points);
     createScorePopup(holeIndex, points);
     setTargets(prev => {
@@ -108,7 +108,7 @@ const WhacABottleneckGame = () => {
   spawnTargetRef.current = () => {
     const availableHoles = targets.map((t, i) => t === null ? i : null).filter(i => i !== null);
     if (availableHoles.length === 0) {
-      spawnTimerRef.current = setTimeout(spawnTarget, 200);
+      spawnTimerRef.current = setTimeout(spawnTarget, 100);
       return;
     }
     const randomHole = availableHoles[Math.floor(Math.random() * availableHoles.length)];
@@ -139,7 +139,7 @@ const WhacABottleneckGame = () => {
         return newTargets;
       });
     }, hideTime);
-    const nextSpawn = 400 + Math.random() * 400;
+    const nextSpawn = 500 + Math.random() * 400;
     spawnTimerRef.current = setTimeout(() => spawnTargetRef.current(), nextSpawn);
   };
 
