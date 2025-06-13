@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Admin from './Admin';
 import { API_BASE_URL, API_KEY } from '../config';
+import Hammer from './Hammer'; // ou '../Hammer' selon l’endroit
 const WhacABottleneckGame = () => {
   // États du jeu
   const [score, setScore] = useState(0);
