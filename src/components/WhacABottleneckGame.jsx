@@ -186,7 +186,7 @@ useEffect(() => {
     if (spawnTimerRef.current) clearTimeout(spawnTimerRef.current);
     setGameState('playing');
     setScore(0);
-    setTimeLeft(30);
+    setTimeLeft(20);
     setDiamondCount(0);
     setDiamondHits(0);
     setTargets(Array(12).fill(null));

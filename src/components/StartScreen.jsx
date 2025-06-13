@@ -37,7 +37,7 @@ const StartScreen = ({
           <div className="flex flex-col items-center text-center">
             <h2 className="text-3xl font-bold mb-6">🎯 Règles du jeu</h2>
             <p className="text-2xl mb-10 leading-relaxed max-w-3xl">
-              Tapez sur les <strong className="text-yellow-400">déficiences</strong> (+15 pts) et évitez les <strong className="text-green-300">bénéfices</strong> (-5 pts).
+              Tapez sur les <strong className="text-yellow-400">déficiences</strong> (+15 pts) et évitez les <strong className="text-green-300">bénéfices</strong> (-10 pts).
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left text-xl leading-relaxed mb-10 w-full">
