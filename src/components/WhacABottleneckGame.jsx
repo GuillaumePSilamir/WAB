@@ -150,7 +150,7 @@ const WhacABottleneckGame = () => {
   useEffect(() => {
     fetch(`${API_BASE_URL}/scores`, {
       method: 'GET',  
-      headers: { 'x-api-key': API_KEY }
+      headers: { 'x-api-key': 'SilamirCD2025!'}
     })
       .then(res => res.json())
       .then(data => setHighScores(data.sort((a, b) => b.score - a.score)))
@@ -224,7 +224,7 @@ useEffect(() => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': API_KEY
+        'x-api-key': 'SilamirCD2025!'
       },
       body: JSON.stringify(scoreData)
     })
