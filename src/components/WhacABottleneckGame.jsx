@@ -149,6 +149,7 @@ const WhacABottleneckGame = () => {
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/scores`, {
+      method: 'GET',  
       headers: { 'x-api-key': API_KEY }
     })
       .then(res => res.json())
