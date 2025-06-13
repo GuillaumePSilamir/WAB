@@ -8,59 +8,65 @@ const StartScreen = ({
   startGame
 }) => {
   return (
-    <div className="bg-white/10 p-10 rounded-2xl backdrop-blur max-w-4xl mx-auto text-center text-white">
+    <div className="bg-white/10 p-10 rounded-2xl backdrop-blur-xl max-w-5xl mx-auto text-center text-white shadow-lg animate-fade-in">
       {!passwordValidated ? (
         <>
-          <h2 className="text-3xl mb-6 font-bold">🔐 Accès protégé</h2>
-          <p className="mb-4 text-xl">Veuillez entrer le mot de passe pour accéder au jeu :</p>
+          <h2 className="text-4xl font-bold mb-4">🔐 Accès protégé</h2>
+          <p className="text-xl mb-6">
+            Entrez le mot de passe pour accéder à la mission :
+          </p>
           <input
             type="password"
             value={passwordInput}
             onChange={(e) => setPasswordInput(e.target.value)}
-            className="px-4 py-2 rounded-lg text-black text-center text-xl"
+            className="px-6 py-3 rounded-lg text-black text-center text-xl w-80 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             placeholder="Mot de passe"
           />
-          <br />
-          <button
-            onClick={validatePassword}
-            className="mt-5 px-6 py-2 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700"
-          >
-            Valider
-          </button>
+          <div className="mt-6">
+            <button
+              onClick={validatePassword}
+              className="px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition shadow-md"
+            >
+              Valider
+            </button>
+          </div>
         </>
       ) : (
         <>
-          <h2 className="text-4xl mb-5 font-bold">Règles du jeu</h2>
-          <p className="mb-8 text-2xl">
-            Tapez sur les déficiences de processus (+15 pts) et préservez les bénéfices de l'automatisation agentique (-5 pts)
+          <h2 className="text-5xl font-bold mb-6">🎯 Règles du jeu</h2>
+          <p className="text-2xl mb-10 leading-relaxed">
+            Tapez sur les <strong className="text-yellow-400">déficiences</strong> (+15 pts) et évitez les <strong className="text-green-300">bénéfices</strong> (-5 pts).
           </p>
-          <div className="text-left space-y-6 text-2xl mb-8 leading-relaxed">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left text-xl leading-relaxed mb-10">
             <div>
-              <strong>Déficiences à éliminer :</strong>
-              <ul className="mt-2 space-y-2 ml-5 list-disc">
-                <li>🧾 – Paperasse</li>
-                <li>🤯 – Surcharge mentale</li>
-                <li>🔄 – Redondance, bugs</li>
-                <li>🐢 – Lenteurs</li>
+              <h3 className="text-2xl font-bold mb-2">🚫 Déficiences à éliminer :</h3>
+              <ul className="list-disc ml-6 space-y-2">
+                <li>🧾 Paperasse</li>
+                <li>🤯 Surcharge mentale</li>
+                <li>🔄 Redondance / bugs</li>
+                <li>🐢 Lenteurs</li>
               </ul>
             </div>
             <div>
-              <strong>Bénéfices à préserver :</strong>
-              <ul className="mt-2 space-y-2 ml-5 list-disc">
-                <li>💰 – Gains financiers</li>
-                <li>🤖 – Agents surperformants</li>
-                <li>💊 – Résolution d’irritants métiers</li>
+              <h3 className="text-2xl font-bold mb-2">✅ Bénéfices à préserver :</h3>
+              <ul className="list-disc ml-6 space-y-2">
+                <li>💰 Gains financiers</li>
+                <li>🤖 Agents surperformants</li>
+                <li>💊 Résolution d’irritants métiers</li>
               </ul>
-            </div>
-            <div>
-              <strong>💎 Diamant : pépite Agentique</strong> +25 pts, bonus de temps si touché plusieurs fois
             </div>
           </div>
+
+          <div className="text-xl mb-10 text-yellow-300 font-semibold">
+            💎 <strong>Pépite Agentique</strong> : +25 pts & bonus de temps si touchée plusieurs fois
+          </div>
+
           <button
             onClick={startGame}
-            className="bg-gradient-to-r from-red-500 to-orange-500 px-8 py-4 rounded-full text-xl font-bold hover:scale-105 transition-transform shadow-lg"
+            className="bg-gradient-to-r from-red-500 to-orange-500 px-10 py-4 rounded-full text-2xl font-bold hover:scale-105 transition-transform shadow-xl"
           >
-            Commencer la chasse !
+            🚀 Commencer la chasse !
           </button>
         </>
       )}

@@ -4,12 +4,13 @@ const ScorePopup = ({ id, points, isPositive }) => {
   return (
     <div
       key={id}
-      className={`fixed pointer-events-none text-xl font-bold z-50 animate-pulse ${isPositive ? 'text-green-400' : 'text-red-400'}`}
+      className={`fixed z-50 pointer-events-none text-3xl font-extrabold 
+        ${isPositive ? 'text-green-400' : 'text-red-400'}
+        animate-[popupFloat_0.8s_ease-out_forwards]`}
       style={{
         left: '50%',
         top: '50%',
-        transform: 'translate(-50%, -50%)',
-        animation: 'float 1s ease-out forwards'
+        transform: 'translate(-50%, -50%)'
       }}
     >
       {points > 0 ? '+' : ''}{points}

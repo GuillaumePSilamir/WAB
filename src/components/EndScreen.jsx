@@ -13,39 +13,46 @@ const EndScreen = ({
   onRestart
 }) => {
   return (
-    <div className="bg-white/10 p-10 rounded-2xl backdrop-blur max-w-2xl mx-auto text-white">
-      <h2 className="text-2xl mb-5">Partie terminée !</h2>
-      <div className="text-3xl text-yellow-500 mb-5">Score: {score}</div>
+    <div className="w-full max-w-3xl mx-auto bg-white/10 backdrop-blur p-8 rounded-2xl text-white shadow-xl">
+      <h2 className="text-4xl font-bold text-center mb-6">🎮 Partie terminée</h2>
 
-      <div className={performanceMessage.className}>{performanceMessage.message}</div>
+      <div className="text-2xl text-center mb-4">
+        <span className="text-yellow-400 font-extrabold">Votre score : {score}</span>
+      </div>
+
+      {performanceMessage && (
+        <div className={`text-center mb-6 ${performanceMessage.className}`}>
+          {performanceMessage.message}
+        </div>
+      )}
 
       {newRecord && (
-        <div className="text-yellow-500 text-xl mb-5">
+        <div className="text-center text-yellow-400 font-bold text-lg mb-6">
           🎉 Nouveau record personnel !
         </div>
       )}
 
-      <div className="mb-8">
-        <h3 className="text-xl mb-4">Enregistrer votre score</h3>
-        <div className="space-y-3">
+      {/* Formulaire d'enregistrement */}
+      <div className="bg-white/10 p-6 rounded-xl mb-8">
+        <h3 className="text-xl font-semibold mb-4">📋 Enregistrer votre score</h3>
+        <div className="flex flex-col md:flex-row md:items-center gap-4">
           <input
             type="text"
             placeholder="Nom du joueur"
             value={playerName}
             onChange={(e) => setPlayerName(e.target.value)}
             maxLength={20}
-            className="px-4 py-2 rounded-lg text-black w-48 mx-2"
+            className="px-4 py-2 rounded-lg text-black flex-1"
           />
-          <br />
           <input
             type="email"
             placeholder="Email (optionnel)"
             value={playerEmail}
             onChange={(e) => setPlayerEmail(e.target.value)}
-            className="px-4 py-2 rounded-lg text-black w-48 mx-2"
+            className="px-4 py-2 rounded-lg text-black flex-1"
           />
         </div>
-        <div className="mt-5 space-x-3">
+        <div className="mt-6 flex flex-wrap justify-center gap-4">
           <button
             onClick={saveHighScore}
             className="bg-gradient-to-r from-green-500 to-green-600 px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform"
@@ -61,21 +68,21 @@ const EndScreen = ({
         </div>
       </div>
 
-      <div className="bg-white/10 p-5 rounded-xl">
-        <h3 className="text-xl mb-4">🏆 Meilleurs scores</h3>
-        <div className="space-y-2">
-          {highScores.slice(0, 10).map((scoreEntry, index) => (
+      {/* Top 10 */}
+      <div className="bg-white/5 p-6 rounded-xl">
+        <h3 className="text-xl font-semibold mb-4 text-center">🏆 Top 10 des scores</h3>
+        <div className="space-y-3">
+          {highScores.slice(0, 10).map((entry, index) => (
             <div
-              key={scoreEntry.id}
-              className="p-3 bg-white/10 rounded-lg"
+              key={entry.id}
+              className="bg-white/10 p-3 rounded-lg flex items-center gap-3"
             >
-              <span className={`font-bold flex items-center gap-2 ${index === 0 ? 'text-yellow-400' : index === 1 ? 'text-gray-300' : index === 2 ? 'text-orange-400' : ''}`}>
-  <span className="text-2xl">
-    {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : ''}
-  </span>
-  {index + 1}. {scoreEntry.name} – {scoreEntry.score} pts ({scoreEntry.date})
-</span>
-              
+              <span className={`text-2xl ${index === 0 ? 'text-yellow-400' : index === 1 ? 'text-gray-300' : index === 2 ? 'text-orange-400' : ''}`}>
+                {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `${index + 1}.`}
+              </span>
+              <span className="font-semibold">
+                {entry.name} – {entry.score} pts <span className="text-sm opacity-70">({entry.date})</span>
+              </span>
             </div>
           ))}
         </div>
