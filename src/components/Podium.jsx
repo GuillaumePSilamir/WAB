@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../config.js'; // ← garde ce chemin si c’est correct
+import { API_BASE_URL } from './config.js'; // ← garde ce chemin si c’est correct
 
 function Podium() {
   const [highScores, setHighScores] = useState([]);
