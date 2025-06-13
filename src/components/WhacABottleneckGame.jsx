@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+// 🧩 Composants internes
+import StartScreen from './StartScreen';
+import GameBoard from './GameBoard';
+import EndScreen from './EndScreen';
+import Hammer from './Hammer';
+import ScorePopup from './ScorePopup';
 import Admin from './Admin';
-import { API_BASE_URL, API_KEY } from '../config';
-import Hammer from './Hammer'; // ou '../Hammer' selon l’endroit
-import StartScreen from './StartScreen'; // ou '../StartScreen' selon l’arborescence
 const WhacABottleneckGame = () => {
   // États du jeu
   const [score, setScore] = useState(0);
