@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Admin from './Admin';
-
+import { API_BASE_URL, API_KEY } from '../config';
 const WhacABottleneckGame = () => {
   // États du jeu
   const [score, setScore] = useState(0);
@@ -37,23 +37,20 @@ const WhacABottleneckGame = () => {
 
   //  Charger les scores sauvegardés à l'ouverture du jeu
   useEffect(() => {
-    fetch('https://Whac-A-Bottleneck-backend.onrender.com/scores', {
-      headers: {
-        'x-api-key': 'SilamirCD2025!'
-      }
-    })
-    .then(res => {
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-      return res.json();
-    })
-    .then(data => {
+    fetch(`${API_BASE_URL}/scores`, {
+  headers: {
+    'x-api-key': API_KEY
+  }
+})
+.then(res => res.json())
+.then(data => {
   const sorted = data.sort((a, b) => b.score - a.score);
   setHighScores(sorted);
 })
     .catch(err => {
       console.error("Erreur chargement scores :", err);
+
+      
       // Afficher un message d'erreur à l'utilisateur
     });
   }, []); // CORRECTION: Ajout des dépendances manquantes
@@ -275,19 +272,19 @@ const onReturnToGame = () => {
     });
 
     // ✅ ENVOI vers le serveur
-    fetch('https://Whac-A-Bottleneck-backend.onrender.com/submit-score', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': 'SilamirCD2025!'
-      },
-      body: JSON.stringify({
-        name: playerName.trim(),
-        email: playerEmail.trim(),
-        score,
-        date: new Date().toLocaleDateString('fr-FR')
-      })
-    })
+    fetch(`${API_BASE_URL}/submit-score`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'x-api-key': API_KEY
+  },
+  body: JSON.stringify({
+    name: playerName.trim(),
+    email: playerEmail.trim(),
+    score,
+    date: new Date().toLocaleDateString('fr-FR')
+  })
+})
     .then(res => res.json())
     .then(data => {
       console.log('Serveur:', data.message);
