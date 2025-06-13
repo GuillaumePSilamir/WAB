@@ -13,7 +13,7 @@ const EndScreen = ({
   onRestart
 }) => {
   return (
-    <div className="w-full max-w-3xl mx-auto bg-white/10 backdrop-blur p-8 rounded-2xl text-white shadow-xl">
+    <div className="w-full max-w-4xl mx-auto bg-white/10 backdrop-blur p-8 rounded-2xl text-white shadow-xl">
       <h2 className="text-4xl font-bold text-center mb-6">🎮 Partie terminée</h2>
 
       <div className="text-2xl text-center mb-4">
@@ -74,7 +74,7 @@ const EndScreen = ({
         <div className="space-y-3">
           {highScores.slice(0, 10).map((entry, index) => (
             <div
-              key={entry.id}
+              key={`${entry.name}-${entry.score}-${entry.date}-${index}`}
               className="bg-white/10 p-3 rounded-lg flex items-center gap-3"
             >
               <span className={`text-2xl ${index === 0 ? 'text-yellow-400' : index === 1 ? 'text-gray-300' : index === 2 ? 'text-orange-400' : ''}`}>

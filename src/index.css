@@ -1,6 +1,51 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-body {
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+@import "tailwindcss";
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+}
+
+/* Animation pour les popups de score */
+@keyframes popupFloat {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -150%) scale(1.2);
+  }
+}
+
+.animate-popupFloat {
+  animation: popupFloat 0.8s ease-out forwards;
+}
+
+/* Animation de fade-in */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
 }
