@@ -35,7 +35,7 @@ const StartScreen = ({
           </div>
         ) : (
           <div className="flex flex-col items-center text-center">
-            <h2 className="text-5xl font-bold mb-6">🎯 Règles du jeu</h2>
+            <h2 className="text-3xl font-bold mb-6">🎯 Règles du jeu</h2>
             <p className="text-2xl mb-10 leading-relaxed max-w-3xl">
               Tapez sur les <strong className="text-yellow-400">déficiences</strong> (+15 pts) et évitez les <strong className="text-green-300">bénéfices</strong> (-5 pts).
             </p>
@@ -44,9 +44,9 @@ const StartScreen = ({
               <div className="bg-white/5 p-6 rounded-xl border border-white/10">
                 <h3 className="text-2xl font-bold mb-4 text-white">🚫 Déficiences à éliminer :</h3>
                 <ul className="list-disc ml-6 space-y-2 text-white">
-                  <li>🧾 Paperasse</li>
+                  <li>🧾 Paperasse et actes manuels </li>
                   <li>🤯 Surcharge mentale</li>
-                  <li>🔄 Redondance / bugs</li>
+                  <li>🔄 Redondances / bugs</li>
                   <li>🐢 Lenteurs</li>
                 </ul>
               </div>
@@ -60,13 +60,13 @@ const StartScreen = ({
               </div>
             </div>
 
-            <div className="text-xl mb-10 text-yellow-300 font-semibold bg-yellow-500/10 p-4 rounded-xl border border-yellow-500/20 max-w-3xl">
+            <div className="text-2xl mb-10 text-yellow-300 font-semibold bg-yellow-500/10 p-4 rounded-xl border border-yellow-500/20 max-w-3xl">
               💎 <strong>Pépite Agentique</strong> : +25 pts & bonus de temps si touchée plusieurs fois
             </div>
 
             <button
               onClick={startGame}
-              className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 px-12 py-4 rounded-full text-2xl font-bold text-white transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:scale-105 cursor-pointer"
+              className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 px-12 py-4 rounded-full text-4xl font-bold text-white transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:scale-105 cursor-pointer"
             >
               🚀 Commencer la chasse !
             </button>

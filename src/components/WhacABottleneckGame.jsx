@@ -286,8 +286,8 @@ useEffect(() => {
         ) : (
           <>
             <header className="text-center mb-8 max-w-3xl mx-auto">
-              <h1 className="text-4xl font-extrabold mb-2 drop-shadow-lg">🔨 Whac-A-Bottleneck</h1>
-              <p className="text-lg opacity-90">Éradiquez les inefficiences dans vos process !</p>
+              <h1 className="text-6xl font-extrabold mb-2 drop-shadow-lg">🔨 Whac-A-Bottleneck</h1>
+              <p className="text-xl opacity-90">Éradiquez les inefficiences dans vos process !</p>
             </header>
 
             <div className="flex justify-center gap-6 mb-8 text-lg font-semibold">
